@@ -1,0 +1,37 @@
+<body>
+<div class="head">
+  <h1>ใบพรีออเดอร์สินค้า</h1>
+</div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="หมายเลขคำสั่งซื้อ" >
+    </mat-form-field>
+    <div class="button-row">
+    <button mat-raised-button color="primary">ยืนยัน</button>
+  </div>
+  </form>
+  <h3></h3>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="ชื่อลูกค้า" value="">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="E-mail" value="">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="รายการที่สั่งซื้อ" value="">
+    </mat-form-field>
+  </form>
+  <div class="state">
+    <mat-form-field>
+    <mat-select placeholder="สถานะ">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+    <br><button mat-raised-button color="primary">บันทึก</button>
+  </div>
+</body>
