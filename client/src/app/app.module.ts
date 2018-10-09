@@ -11,6 +11,7 @@ import { ReportComponent } from './report/report.component';
 import {MatSelectModule} from '@angular/material/select';
 import { MemberComponent } from './member/member.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { PreoderComponent } from './preoder/preoder.component';
 const appRoutes: Routes = [
   
 ];
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ReportComponent,
-    MemberComponent
+    MemberComponent,
+    PreoderComponent
   ],
   imports: [
     BrowserModule,

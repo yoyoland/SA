@@ -1,6 +1,4 @@
 package sut.sa.g21.controller;
-import com.example.demo.entity.*;
-import com.example.demo.repository.*;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -8,35 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import sut.sa.g21.entity.Customer;
+import sut.sa.g21.entity.User;
 import sut.sa.g21.entity.Product;
-import sut.sa.g21.entity.Report;
+import sut.sa.g21.entity.Preorder;
 import sut.sa.g21.entity.Status;
-import sut.sa.g21.repository.CustomerRepository;
+import sut.sa.g21.repository.UserRepository;
 import sut.sa.g21.repository.ProductRepository;
-import sut.sa.g21.repository.ReportRepository;
+import sut.sa.g21.repository.PreorderRepository;
 import sut.sa.g21.repository.StatusRepository;
 
 @RestController
 public class Controller{
     @Autowired
-    private CustomerRepository customerRepository;
+    private UserRepository userRepository;
     @Autowired
     private ProductRepository productRepository;
     @Autowired
-    private ReportRepository reportRepository;
+    private PreorderRepository preorderRepository;
     @Autowired
     private StatusRepository statusRepository;
 
     // --------------- Customer ------------------
 
-    @GetMapping("/Customer")
-    public Collection<Customer> customer(){
-        return customerRepository.findAll();
+    @GetMapping("/Users")
+    public Collection<User> user(){
+        return userRepository.findAll();
     }
-    @GetMapping("/Customer/{Customer_id}")
-    public Optional<Customer> takeinCustomerByid(@PathVariable Long Customer_id ){
-        return customerRepository.findById(Customer_id);
+    @GetMapping("/User/{userId}")
+    public Optional<User> takeinUserByid(@PathVariable Long userId ){
+        return userRepository.findById(userId);
     }
 
 
@@ -47,20 +45,20 @@ public class Controller{
         return productRepository.findAll();
     }
     
-    @GetMapping("/Product/{Product_id}")
-    public Optional<Product> takeinProductByid(@PathVariable Long Product_id ){
-        return productRepository.findById(Product_id);
+    @GetMapping("/Product/{productId}")
+    public Optional<Product> takeinProductByid(@PathVariable Long productId ){
+        return productRepository.findById(productId);
     }
 
-    // --------------- Report --------------
+    // --------------- Preorder --------------
 
-    @GetMapping("/Report")
-    public Collection<Report> report(){
-        return reportRepository.findAll();
+    @GetMapping("/Preorder")
+    public Collection<Preorder> preorder(){
+        return preorderRepository.findAll();
     }
-    @GetMapping("/Report/{Report_id}")
-    public Optional<Report> takeinReportByid(@PathVariable Long Report_id ){
-        return reportRepository.findById(Report_id);
+    @GetMapping("/Preorder/{preId}")
+    public Optional<Preorder> takeinReportByid(@PathVariable Long preId ){
+        return preorderRepository.findById(preId);
     }
 
     // --------------- Status --------------
@@ -70,8 +68,8 @@ public class Controller{
     }
 
     @GetMapping("/Status/{Status_id}")
-    public Optional<Status> takeinStatusByid(@PathVariable Long Status_id ){
-        return statusRepository.findById(Status_id);
+    public Optional<Status> takeinStatusByid(@PathVariable Long statusId ){
+        return statusRepository.findById(statusId);
     }
 
 }

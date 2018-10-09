@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import lombok.*;
 import java.util.List;
+import sut.sa.g21.entity.User;
 @Entity
 @Getter @Setter
 @Table(name="Preorder")
@@ -14,8 +15,8 @@ public class Preorder{
      @GeneratedValue(strategy= GenerationType.IDENTITY)
     private @NonNull Long preId;
     private @NonNull String preName;
-    private double totalPrice;
-
+   
+    
     @ManyToOne()
     @JoinColumn(name= "userId")
     private User user;
@@ -28,8 +29,13 @@ public class Preorder{
     private Status status;
 
     protected Preorder(){}
-    public Preorder(String preName,double totalPrice){
+    
+    
+
+   
+
+    public Preorder(String preName) {
         this.preName = preName;
-        this.totalPrice = totalPrice;
+        
     }
 }
